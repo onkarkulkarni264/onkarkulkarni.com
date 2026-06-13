@@ -980,7 +980,7 @@
   <section class="hero" id="hero">
     <h1>Onkar Kulkarni</h1>
     <p class="subtitle">Full-Stack .NET Developer</p>
-    <p class="pitch">Building scalable web applications with C#, ASP.NET, Angular &amp; SQL Server — 2 years 5 months of
+    <p class="pitch">Building scalable web applications with C#, ASP.NET, Angular &amp; SQL Server — <span id="exp-hero">2 years 5 months</span> of
       hands-on industry experience.</p>
     <div class="cta-group">
       <a href="#projects" class="btn btn-primary">View My Work ↗</a>
@@ -1016,7 +1016,7 @@
       <div class="about-layout">
         <div class="about-left">
           <p class="about-lead">Hi, I'm Onkar — a Full-Stack .NET Developer.</p>
-          <p class="about-bio">With 2 years and 5 months of hands-on industry experience, I build robust,
+          <p class="about-bio">With <span id="exp-about">2 years and 5 months</span> of hands-on industry experience, I build robust,
             production-grade web applications end-to-end. My core stack is C#, ASP.NET MVC &amp; Web API, Entity
             Framework, MS SQL Server, and Angular — covering everything from database design to responsive UI.</p>
           <p class="about-bio">I've shipped a full-scale ERP system, contributed to a financial platform, and worked in
@@ -1051,7 +1051,7 @@
               </svg></div>
             <div>
               <div class="about-card-label">Experience</div>
-              <div class="about-card-value">2 Years 5 Months (Industry)</div>
+              <div class="about-card-value"><span id="exp-card">2 Years 5 Months</span> (Industry)</div>
             </div>
           </div>
           <div class="about-card">
@@ -1431,6 +1431,56 @@
       });
     }, { threshold: 0.5 });
     statEls.forEach(el => statObs.observe(el));
+
+    // Dynamic Experience Calculation
+    function updateExperience() {
+      const startDate = new Date(2026, 1, 10); // Feb 10, 2026 (Month is 0-indexed: 1 = Feb)
+      const today = new Date();
+      
+      let elapsedMonths = (today.getFullYear() - startDate.getFullYear()) * 12 + (today.getMonth() - startDate.getMonth());
+      if (today.getDate() < startDate.getDate()) {
+        elapsedMonths--;
+      }
+      
+      const totalMonths = 26 + elapsedMonths; // 2 years 2 months = 26 months prior experience
+      const years = Math.floor(totalMonths / 12);
+      const months = totalMonths % 12;
+      
+      // Format 1: "X years Y months" / "X years" / "Y months"
+      let format1 = "";
+      if (years > 0) format1 += `${years} year${years > 1 ? 's' : ''}`;
+      if (months > 0) {
+        if (format1) format1 += " ";
+        format1 += `${months} month${months > 1 ? 's' : ''}`;
+      }
+      
+      // Format 2: "X years and Y months"
+      let format2 = "";
+      if (years > 0) format2 += `${years} year${years > 1 ? 's' : ''}`;
+      if (months > 0) {
+        if (format2) format2 += " and ";
+        format2 += `${months} month${months > 1 ? 's' : ''}`;
+      } else if (!format2) {
+        format2 = "0 months";
+      }
+      
+      // Format 3: "X Years Y Months" (Capitalized)
+      let format3 = "";
+      if (years > 0) format3 += `${years} Year${years > 1 ? 's' : ''}`;
+      if (months > 0) {
+        if (format3) format3 += " ";
+        format3 += `${months} Month${months > 1 ? 's' : ''}`;
+      }
+
+      const expHero = document.getElementById("exp-hero");
+      const expAbout = document.getElementById("exp-about");
+      const expCard = document.getElementById("exp-card");
+      
+      if (expHero) expHero.textContent = format1;
+      if (expAbout) expAbout.textContent = format2;
+      if (expCard) expCard.textContent = format3;
+    }
+    updateExperience();
   </script>
 
 </body>
