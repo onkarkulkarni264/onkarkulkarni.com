@@ -717,9 +717,9 @@
       border-radius: 16px;
       padding: 1.5rem;
       transition: all var(--transition);
-      cursor: pointer;
       text-decoration: none;
-      display: block
+      display: flex;
+      flex-direction: column
     }
 
     .cert-card:hover {
@@ -745,16 +745,56 @@
       font-size: 0.78rem;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 0.7rem
+      margin-bottom: 0.7rem;
+      width: fit-content
+    }
+
+    .cert-platform svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0
+    }
+
+    .cert-platform .hackerrank-icon text {
+      fill: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: central
+    }
+
+    .cert-card-spacer {
+      flex: 1
     }
 
     .cert-link {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem
+      gap: 0.5rem;
+      padding: 8px 18px;
+      border: 1.5px solid var(--secondary);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      background: transparent;
+      transition: all var(--transition);
+      width: fit-content;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      cursor: pointer
+    }
+
+    .cert-link svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0
+    }
+
+    .cert-link:hover,
+    .cert-link:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent)
     }
 
     /* EDUCATION */
@@ -1243,28 +1283,30 @@
       <h2 class="section-title">Certifications<span class="accent-line"></span></h2>
       <p class="section-subtitle">Continuous learning</p>
       <div class="certs-grid">
-        <a class="cert-card" href="https://www.udemy.com/certificate/UC-d4dab303-86b2-4eaa-b6ef-30aa0d10ee3a/"
-          target="_blank" rel="noopener">
+        <div class="cert-card">
           <h4>Angular &amp; ASP.NET Core Web API — Real World Application</h4>
-          <div class="cert-platform">🎓 Udemy</div><br>
-          <span class="cert-link">View Certificate →</span>
-        </a>
-        <a class="cert-card" href="https://www.udemy.com/certificate/UC-c172469e-5a60-4663-8ac1-1c1ccbedca19/"
-          target="_blank" rel="noopener">
+          <div class="cert-platform"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L5.81 3.573v3.574l6.189-3.574 6.191 3.574V3.573zM5.81 10.148v8.144c0 1.85.589 3.243 1.741 4.234S10.2 24 11.973 24s3.269-.482 4.448-1.474c1.179-.991 1.768-2.439 1.768-4.314v-8.064h-3.242v7.85c0 2.036-.93 3.054-2.79 3.054-1.86 0-2.79-1.018-2.79-3.054v-7.85z"/></svg> Udemy</div>
+          <div class="cert-card-spacer"></div>
+          <a class="cert-link" href="https://www.udemy.com/certificate/UC-d4dab303-86b2-4eaa-b6ef-30aa0d10ee3a/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Show Certificate</a>
+        </div>
+        <div class="cert-card">
           <h4>SQL Server Stored Procedures</h4>
-          <div class="cert-platform">🎓 Udemy</div><br>
-          <span class="cert-link">View Certificate →</span>
-        </a>
-        <a class="cert-card" href="https://www.hackerrank.com/certificates/d97078d41103" target="_blank" rel="noopener">
+          <div class="cert-platform"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L5.81 3.573v3.574l6.189-3.574 6.191 3.574V3.573zM5.81 10.148v8.144c0 1.85.589 3.243 1.741 4.234S10.2 24 11.973 24s3.269-.482 4.448-1.474c1.179-.991 1.768-2.439 1.768-4.314v-8.064h-3.242v7.85c0 2.036-.93 3.054-2.79 3.054-1.86 0-2.79-1.018-2.79-3.054v-7.85z"/></svg> Udemy</div>
+          <div class="cert-card-spacer"></div>
+          <a class="cert-link" href="https://www.udemy.com/certificate/UC-c172469e-5a60-4663-8ac1-1c1ccbedca19/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Show Certificate</a>
+        </div>
+        <div class="cert-card">
           <h4>SQL (Intermediate) Certification</h4>
-          <div class="cert-platform">💻 HackerRank</div><br>
-          <span class="cert-link">View Certificate →</span>
-        </a>
-        <a class="cert-card" href="https://www.hackerrank.com/certificates/d97078d41103" target="_blank" rel="noopener">
+          <div class="cert-platform"><svg class="hackerrank-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 1.8 21 7 21 17 12 22.2 3 17 3 7"/><text x="12" y="12">H</text></svg> HackerRank</div>
+          <div class="cert-card-spacer"></div>
+          <a class="cert-link" href="https://www.hackerrank.com/certificates/d97078d41103" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Show Certificate</a>
+        </div>
+        <div class="cert-card">
           <h4>C# (Basic) Certification</h4>
-          <div class="cert-platform">💻 HackerRank</div><br>
-          <span class="cert-link">View Certificate →</span>
-        </a>
+          <div class="cert-platform"><svg class="hackerrank-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 1.8 21 7 21 17 12 22.2 3 17 3 7"/><text x="12" y="12">H</text></svg> HackerRank</div>
+          <div class="cert-card-spacer"></div>
+          <a class="cert-link" href="https://www.hackerrank.com/certificates/d97078d41103" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Show Certificate</a>
+        </div>
       </div>
     </div>
   </section>
